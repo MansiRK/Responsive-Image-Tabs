@@ -1,0 +1,139 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1;
+	font-family: sans-serif;
+	background-color: #2a2932;
+}
+
+:root {
+	--text-color: rgb(255, 255, 255);
+	--text-hover: rgb(94, 215, 134);
+	--bg: #2a2932;
+}
+
+h1 {
+	color: var(--text-color);
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 800;
+	text-align: center;
+	padding-top: 30px;
+}
+
+h1:hover {
+	text-shadow: 2px 2px var(--text-hover)
+}
+
+/* .logo {
+	align-items: center;
+} */
+
+.img-container {
+	max-width: 1170px;
+	margin: auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/*.image*/
+.image {
+	width: 100%;
+	display: block;
+	min-height: 100vh;
+	background-color: var(--bg);
+	padding: 100px 0;
+}
+
+.image .image-filter {
+	padding: 0 15px;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.image .image-filter .filter-image {
+	color: var(--text-color);
+	font-size: 18px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 0 10px;
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
+	line-height: 1.2;
+	transition: all 0.3s ease;
+}
+
+.image .image-filter .filter-image.active,
+.image .image-filter .filter-image:hover {
+	color: var(--text-hover);
+	border-bottom: 3px solid var(--text-hover);
+}
+
+.image .image-item {
+	width: calc(100% / 3);
+	padding: 15px;
+}
+
+.image .image-item-inner {
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.image .image-item-inner:hover {
+	box-shadow: 2px 5px 20px #5a575a;
+	transition: all 0.3s ease;
+	transform: translateX(-10px);
+}
+
+.image .image-item-inner img {
+	width: 100%;
+}
+
+.image .image-item.show {
+	animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.image .image-item.hide {
+	display: none;
+}
+
+/*responsive*/
+@media(max-width: 1080px) {
+	.image .image-item {
+		width: 50%;
+	}
+}
+
+@media(max-width: 750px) {
+	.image .image-item {
+		width: 100%;
+	}
+
+	.image .image-filter .filter-item {
+		margin-bottom: 10px;
+	}
+}
