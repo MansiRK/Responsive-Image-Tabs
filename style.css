@@ -7,13 +7,24 @@
 body {
 	line-height: 1;
 	font-family: sans-serif;
-	background-color: #2a2932;
 }
 
 :root {
-	--text-color: rgb(255, 255, 255);
+	--text-color: #2a2932;
 	--text-hover: rgb(94, 215, 134);
-	--bg: #2a2932;
+	--bg: rgb(255, 255, 255);
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+
+.title-container {
+	flex-grow: 1;
+	text-align: center;
 }
 
 h1 {
@@ -29,21 +40,19 @@ h1:hover {
 	text-shadow: 2px 2px var(--text-hover)
 }
 
-/* .logo {
-	align-items: center;
-} */
-
 .img-container {
-	max-width: 1170px;
+	width: 80%;
+	max-width: 1050px;
 	margin: auto;
 }
 
-.row {
+.img-container-content {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 img {
+	width: 800px;
 	max-width: 100%;
 	vertical-align: middle;
 }
@@ -54,57 +63,62 @@ img {
 	display: block;
 	min-height: 100vh;
 	background-color: var(--bg);
-	padding: 100px 0;
+	padding: 100px 5px;
 }
 
 .image .image-filter {
-	padding: 0 15px;
+	padding: 0 20px;
 	width: 100%;
-	text-align: center;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
-.image .image-filter .filter-image {
+.image .image-filter .filter-tabs {
 	color: var(--text-color);
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: 700;
 	text-transform: uppercase;
 	display: inline-block;
-	margin: 0 10px;
+	margin: 0 15px;
+	padding: 5px 10px;
 	cursor: pointer;
 	border-bottom: 2px solid transparent;
-	line-height: 1.2;
 	transition: all 0.3s ease;
 }
 
-.image .image-filter .filter-image.active,
-.image .image-filter .filter-image:hover {
+.image .image-filter .filter-tabs.active,
+.image .image-filter .filter-tabs:hover {
 	color: var(--text-hover);
 	border-bottom: 3px solid var(--text-hover);
 }
 
 .image .image-item {
 	width: calc(100% / 3);
-	padding: 15px;
+	padding: 20px;
 }
 
-.image .image-item-inner {
+.image .image-item-content {
 	position: relative;
 	overflow: hidden;
 	border-radius: 10px;
 }
 
-.image .image-item-inner:hover {
+.image .image-item-content:hover {
 	box-shadow: 2px 5px 20px #5a575a;
 	transition: all 0.3s ease;
 	transform: translateX(-10px);
 }
 
-.image .image-item-inner img {
+.image .image-item-content img {
 	width: 100%;
 }
 
 .image .image-item.show {
 	animation: fadeIn 0.5s ease;
+}
+
+.image .image-item.hide {
+	display: none;
 }
 
 @keyframes fadeIn {
@@ -117,11 +131,8 @@ img {
 	}
 }
 
-.image .image-item.hide {
-	display: none;
-}
 
-/*responsive*/
+/*responsive code*/
 @media(max-width: 1080px) {
 	.image .image-item {
 		width: 50%;
@@ -133,7 +144,11 @@ img {
 		width: 100%;
 	}
 
+	.image .image-filter .filter-tabs {
+		margin: 15px 5px;
+	}
+
 	.image .image-filter .filter-item {
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 }
